@@ -1,6 +1,7 @@
 package Telas;
 
 import LetrasAleatorias.GeradorDeLetrasAleatorias;
+import ManipulaArquivos.GerenciadorDeArquivos;
 
 /**
  *
@@ -12,9 +13,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
-        GeradorDeLetrasAleatorias gerador = new GeradorDeLetrasAleatorias();
-        String letras = gerador.gerarSequenciaDeLetrasAleatorias(10);
-        System.out.print(letras);
+        //GeradorDeLetrasAleatorias gerador = new GeradorDeLetrasAleatorias();
+        //String letras = gerador.gerarSequenciaDeLetrasAleatorias(10);
+        //System.out.print(letras);
+        //GerenciadorDeArquivos ger = new GerenciadorDeArquivos();
+        //ger.escreverNoArquivo("teste.txt", letras);
         initComponents();
     }
 
