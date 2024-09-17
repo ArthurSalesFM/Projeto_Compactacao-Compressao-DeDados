@@ -13,7 +13,7 @@ import java.io.File;
 public class GerenciadorDeArquivos {
 
     // Método para escrever texto em um arquivo usando caminho relativo
-    public void escreverNoArquivo(String nomeArquivo, String conteudo) {
+    public String escreverNoArquivo(String nomeArquivo, String conteudo) {
         // Define o caminho relativo para a pasta 'src/main/Arquivos'
         String caminhoRelativo = "src/main/Arquivos";
 
@@ -26,12 +26,18 @@ public class GerenciadorDeArquivos {
             pasta.mkdirs(); // Cria a pasta e subpastas, se necessário
         }
 
-        // Escreve no arquivo
-        try (FileWriter escritor = new FileWriter(caminhoCompleto)) {
+        // Verifica se o arquivo já existe
+        File arquivo = new File(caminhoCompleto);
+        if (arquivo.exists()) {
+            return "\nO arquivo já existe. Não será criado um novo."; // Sai do método, pois o arquivo já existe
+        }
+
+        // Escreve no arquivo se ele não existir
+        try (FileWriter escritor = new FileWriter(arquivo)) {
             escritor.write(conteudo); // Escreve o conteúdo no arquivo
-            System.out.println("Arquivo escrito com sucesso em: " + caminhoCompleto);
+            return "\nArquivo escrito com sucesso em: " + caminhoCompleto;
         } catch (IOException e) {
-            System.out.println("Erro ao escrever no arquivo: " + e.getMessage());
+            return "\nErro ao escrever no arquivo: " + e.getMessage();
         }
     }
 
@@ -48,7 +54,7 @@ public class GerenciadorDeArquivos {
                 conteudoDoArquivo.append(linha).append("\n"); // Adiciona cada linha ao StringBuilder
             }
         } catch (IOException e) {
-            System.out.println("Erro ao ler o arquivo: " + e.getMessage());
+            System.out.println("\nErro ao ler o arquivo: " + e.getMessage());
         }
 
         return conteudoDoArquivo.toString(); // Retorna o conteúdo como String

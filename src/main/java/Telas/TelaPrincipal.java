@@ -2,6 +2,7 @@ package Telas;
 
 import LetrasAleatorias.GeradorDeLetrasAleatorias;
 import ManipulaArquivos.GerenciadorDeArquivos;
+import javax.swing.JFrame;
 
 /**
  *
@@ -12,13 +13,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form TelaPrincipal
      */
-    public TelaPrincipal() {
-        //GeradorDeLetrasAleatorias gerador = new GeradorDeLetrasAleatorias();
-        //String letras = gerador.gerarSequenciaDeLetrasAleatorias(10);
-        //System.out.print(letras);
-        //GerenciadorDeArquivos ger = new GerenciadorDeArquivos();
-        //ger.escreverNoArquivo("teste.txt", letras);
+    public TelaPrincipal() {  
+        
         initComponents();
+        
+        // Define o tamanho da janela
+        //setSize(400, 300);
+        
+        // Centraliza o JFrame na tela
+        setLocationRelativeTo(null);
+        
+        // Define a operação padrão de fechar
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        // Torna o JFrame visível
+        setVisible(true);
     }
 
     /**
@@ -63,6 +72,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
 
         jButton1.setText("Iniciar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Gerar Relatório");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -154,6 +168,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        
+        GeradorDeLetrasAleatorias gerador = new GeradorDeLetrasAleatorias();
+        GerenciadorDeArquivos ger = new GerenciadorDeArquivos();
+        
+        String letras = gerador.gerarSequenciaDeLetrasAleatorias(1000);
+        System.out.print(letras);        
+        ger.escreverNoArquivo("1000Letras.txt", letras);
+        
+        letras = gerador.gerarSequenciaDeLetrasAleatorias(10000);
+        System.out.print(letras);        
+        ger.escreverNoArquivo("10000Letras.txt", letras);
+        
+        letras = gerador.gerarSequenciaDeLetrasAleatorias(100000);
+        System.out.print(letras);        
+        ger.escreverNoArquivo("100000Letras.txt", letras);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
