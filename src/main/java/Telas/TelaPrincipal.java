@@ -1,8 +1,10 @@
 package Telas;
 
+import LetrasAleatorias.GeradorDeLetrasAleatorias;
+
 /**
  *
- * @author Gasparzinho
+ * @author Arthur Felipe MS
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
@@ -10,6 +12,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
+        GeradorDeLetrasAleatorias gerador = new GeradorDeLetrasAleatorias();
+        String letras = gerador.gerarSequenciaDeLetrasAleatorias(10);
+        System.out.print(letras);
         initComponents();
     }
 

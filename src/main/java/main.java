@@ -2,7 +2,7 @@ import Telas.TelaPrincipal;
 
 /**
  *
- * @author Arthur
+ * @author Arthur Felipe MS
  */
 public class main {
 
