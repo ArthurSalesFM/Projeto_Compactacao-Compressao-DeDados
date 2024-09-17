@@ -35,18 +35,22 @@ public class GerenciadorDeArquivos {
         }
     }
 
-     // Método para ler o conteúdo de um arquivo no caminho relativo
-    public void lerArquivo(String nomeArquivo) {
+    // Método para ler o conteúdo de um arquivo e retornar como uma String
+    public String lerArquivo(String nomeArquivo) {
         String caminhoRelativo = "src/main/Arquivos";
         String caminhoCompleto = caminhoRelativo + File.separator + nomeArquivo;
+        
+        StringBuilder conteudoDoArquivo = new StringBuilder(); // Armazena o conteúdo do arquivo
 
         try (BufferedReader leitor = new BufferedReader(new FileReader(caminhoCompleto))) {
             String linha;
             while ((linha = leitor.readLine()) != null) {
-                System.out.println(linha); // Exibe o conteúdo do arquivo linha por linha
+                conteudoDoArquivo.append(linha).append("\n"); // Adiciona cada linha ao StringBuilder
             }
         } catch (IOException e) {
             System.out.println("Erro ao ler o arquivo: " + e.getMessage());
         }
+
+        return conteudoDoArquivo.toString(); // Retorna o conteúdo como String
     }
 }
