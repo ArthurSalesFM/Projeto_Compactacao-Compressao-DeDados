@@ -4,5 +4,7 @@ main$1.class
 main.class
 LetrasAleatorias\GeradorDeLetrasAleatorias.class
 Telas\TelaPrincipal$1.class
+Algoritmos\RunLength.class
 Telas\TelaPrincipal$2.class
+Algoritmos\LZN.class
 ManipulaArquivos\GerenciadorDeArquivos.class

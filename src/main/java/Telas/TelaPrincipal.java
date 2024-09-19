@@ -1,5 +1,7 @@
 package Telas;
 
+import Algoritmos.LZW;
+import Algoritmos.RunLength;
 import LetrasAleatorias.GeradorDeLetrasAleatorias;
 import ManipulaArquivos.GerenciadorDeArquivos;
 import javax.swing.JFrame;
@@ -16,17 +18,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public TelaPrincipal() {  
         
         initComponents();
-        
-        // Define o tamanho da janela
-        //setSize(400, 300);
-        
-        // Centraliza o JFrame na tela
         setLocationRelativeTo(null);
         
         // Define a operação padrão de fechar
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        // Torna o JFrame visível
         setVisible(true);
     }
 
@@ -39,17 +34,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        saidaDeDadosNaTela = new javax.swing.JPanel();
+        btnIniciarProcesso = new javax.swing.JButton();
+        btnGerarRelatorio = new javax.swing.JButton();
+        todosOsCodigos = new javax.swing.JRadioButton();
+        rBtn_codigoRunLength = new javax.swing.JRadioButton();
+        rBtn_codigoLZW = new javax.swing.JRadioButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        menuProjeto = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        menuAlgoritmos = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
 
@@ -57,64 +52,64 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setTitle("Compactação e Compressão de Dados - UEPB - ARTHUR 2024.2");
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        saidaDeDadosNaTela.setBackground(new java.awt.Color(255, 255, 255));
+        saidaDeDadosNaTela.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout saidaDeDadosNaTelaLayout = new javax.swing.GroupLayout(saidaDeDadosNaTela);
+        saidaDeDadosNaTela.setLayout(saidaDeDadosNaTelaLayout);
+        saidaDeDadosNaTelaLayout.setHorizontalGroup(
+            saidaDeDadosNaTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        saidaDeDadosNaTelaLayout.setVerticalGroup(
+            saidaDeDadosNaTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 371, Short.MAX_VALUE)
         );
 
-        jButton1.setText("Iniciar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnIniciarProcesso.setText("Iniciar");
+        btnIniciarProcesso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnIniciarProcessoActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Gerar Relatório");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnGerarRelatorio.setText("Gerar Relatório");
+        btnGerarRelatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnGerarRelatorioActionPerformed(evt);
             }
         });
 
-        jRadioButton1.setText("Todos");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        todosOsCodigos.setText("Todos");
+        todosOsCodigos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                todosOsCodigosActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setText("Run-Length");
+        rBtn_codigoRunLength.setText("Run-Length");
 
-        jRadioButton3.setText("LZW");
+        rBtn_codigoLZW.setText("LZW");
 
-        jMenu1.setText("Projeto");
+        menuProjeto.setText("Projeto");
 
         jMenuItem1.setText("jMenuItem1");
-        jMenu1.add(jMenuItem1);
+        menuProjeto.add(jMenuItem1);
 
         jMenuItem2.setText("jMenuItem2");
-        jMenu1.add(jMenuItem2);
+        menuProjeto.add(jMenuItem2);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(menuProjeto);
 
-        jMenu2.setText("Algoritmos");
+        menuAlgoritmos.setText("Algoritmos");
 
         jMenuItem3.setText("jMenuItem3");
-        jMenu2.add(jMenuItem3);
+        menuAlgoritmos.add(jMenuItem3);
 
         jMenuItem4.setText("jMenuItem4");
-        jMenu2.add(jMenuItem4);
+        menuAlgoritmos.add(jMenuItem4);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(menuAlgoritmos);
 
         setJMenuBar(jMenuBar1);
 
@@ -124,21 +119,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(saidaDeDadosNaTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(126, 126, 126)
-                .addComponent(jButton1)
+                .addComponent(btnIniciarProcesso)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btnGerarRelatorio)
                 .addGap(110, 110, 110))
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jRadioButton1)
+                .addComponent(todosOsCodigos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2)
+                .addComponent(rBtn_codigoRunLength)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton3)
+                .addComponent(rBtn_codigoLZW)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -146,62 +141,74 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
+                    .addComponent(todosOsCodigos)
+                    .addComponent(rBtn_codigoRunLength)
+                    .addComponent(rBtn_codigoLZW))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(saidaDeDadosNaTela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnIniciarProcesso)
+                    .addComponent(btnGerarRelatorio))
                 .addGap(32, 32, 32))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void todosOsCodigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todosOsCodigosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_todosOsCodigosActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnGerarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarRelatorioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnGerarRelatorioActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnIniciarProcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarProcessoActionPerformed
         
         
         GeradorDeLetrasAleatorias gerador = new GeradorDeLetrasAleatorias();
         GerenciadorDeArquivos ger = new GerenciadorDeArquivos();
+        RunLength runL = new RunLength();
+        LZW lzn = new LZW();
+        String letras = "";
         
-        String letras = gerador.gerarSequenciaDeLetrasAleatorias(1000);
-        System.out.print(letras);        
+        letras = gerador.gerarSequenciaDeLetrasAleatorias(1000);
         ger.escreverNoArquivo("1000Letras.txt", letras);
         
         letras = gerador.gerarSequenciaDeLetrasAleatorias(10000);
-        System.out.print(letras);        
-        ger.escreverNoArquivo("10000Letras.txt", letras);
+        //System.out.print(letras);        
+        //ger.escreverNoArquivo("10000Letras.txt", letras);
         
-        letras = gerador.gerarSequenciaDeLetrasAleatorias(100000);
-        System.out.print(letras);        
-        ger.escreverNoArquivo("100000Letras.txt", letras);
+        //letras = gerador.gerarSequenciaDeLetrasAleatorias(100000);
+        //System.out.print(letras);        
+        //ger.escreverNoArquivo("100000Letras.txt", letras);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+        letras = lzn.compactar(letras);
+        System.out.println("\n\n\nCOMPACTADO LZN : " + letras + "\n\n\n");
+        
+        
+        letras = lzn.descompactar(letras);
+        System.out.println("\n\n\nDESCOMPACTADO LZN : " + letras + "\n\n\n");
+
+        
+        
+        
+    }//GEN-LAST:event_btnIniciarProcessoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JButton btnGerarRelatorio;
+    private javax.swing.JButton btnIniciarProcesso;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JMenu menuAlgoritmos;
+    private javax.swing.JMenu menuProjeto;
+    private javax.swing.JRadioButton rBtn_codigoLZW;
+    private javax.swing.JRadioButton rBtn_codigoRunLength;
+    private javax.swing.JPanel saidaDeDadosNaTela;
+    private javax.swing.JRadioButton todosOsCodigos;
     // End of variables declaration//GEN-END:variables
 }
