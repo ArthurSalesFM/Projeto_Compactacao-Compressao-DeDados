@@ -166,6 +166,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void btnIniciarProcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarProcessoActionPerformed
         
+        /*
+        Ultima parte..........
+        */
         
         GeradorDeLetrasAleatorias gerador = new GeradorDeLetrasAleatorias();
         GerenciadorDeArquivos ger = new GerenciadorDeArquivos();
