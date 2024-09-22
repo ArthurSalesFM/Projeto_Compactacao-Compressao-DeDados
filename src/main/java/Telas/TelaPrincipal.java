@@ -5,12 +5,16 @@ import Algoritmos.RunLength;
 import LetrasAleatorias.GeradorDeLetrasAleatorias;
 import ManipulaArquivos.GerenciadorDeArquivos;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Arthur Felipe MS
  */
 public class TelaPrincipal extends javax.swing.JFrame {
+    
+    private long[] tempoDeExecusaoRL = new long[6];
+    private long[] tempoDeExecusaoLZW = new long[6];
 
     /**
      * Creates new form TelaPrincipal
@@ -34,37 +38,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        saidaDeDadosNaTela = new javax.swing.JPanel();
         btnIniciarProcesso = new javax.swing.JButton();
-        btnGerarRelatorio = new javax.swing.JButton();
-        todosOsCodigos = new javax.swing.JRadioButton();
-        rBtn_codigoRunLength = new javax.swing.JRadioButton();
-        rBtn_codigoLZW = new javax.swing.JRadioButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        menuProjeto = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        menuAlgoritmos = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Compactação e Compressão de Dados - UEPB - ARTHUR 2024.2");
         setResizable(false);
-
-        saidaDeDadosNaTela.setBackground(new java.awt.Color(255, 255, 255));
-        saidaDeDadosNaTela.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout saidaDeDadosNaTelaLayout = new javax.swing.GroupLayout(saidaDeDadosNaTela);
-        saidaDeDadosNaTela.setLayout(saidaDeDadosNaTelaLayout);
-        saidaDeDadosNaTelaLayout.setHorizontalGroup(
-            saidaDeDadosNaTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        saidaDeDadosNaTelaLayout.setVerticalGroup(
-            saidaDeDadosNaTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 371, Short.MAX_VALUE)
-        );
 
         btnIniciarProcesso.setText("Iniciar");
         btnIniciarProcesso.addActionListener(new java.awt.event.ActionListener() {
@@ -72,146 +51,175 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 btnIniciarProcessoActionPerformed(evt);
             }
         });
-
-        btnGerarRelatorio.setText("Gerar Relatório");
-        btnGerarRelatorio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGerarRelatorioActionPerformed(evt);
-            }
-        });
-
-        todosOsCodigos.setText("Todos");
-        todosOsCodigos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                todosOsCodigosActionPerformed(evt);
-            }
-        });
-
-        rBtn_codigoRunLength.setText("Run-Length");
-
-        rBtn_codigoLZW.setText("LZW");
-
-        menuProjeto.setText("Projeto");
-
-        jMenuItem1.setText("jMenuItem1");
-        menuProjeto.add(jMenuItem1);
-
-        jMenuItem2.setText("jMenuItem2");
-        menuProjeto.add(jMenuItem2);
-
-        jMenuBar1.add(menuProjeto);
-
-        menuAlgoritmos.setText("Algoritmos");
-
-        jMenuItem3.setText("jMenuItem3");
-        menuAlgoritmos.add(jMenuItem3);
-
-        jMenuItem4.setText("jMenuItem4");
-        menuAlgoritmos.add(jMenuItem4);
-
-        jMenuBar1.add(menuAlgoritmos);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(saidaDeDadosNaTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addComponent(btnIniciarProcesso)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
-                .addComponent(btnGerarRelatorio)
-                .addGap(110, 110, 110))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(todosOsCodigos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rBtn_codigoRunLength)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rBtn_codigoLZW)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(218, Short.MAX_VALUE)
+                .addComponent(btnIniciarProcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(202, 202, 202))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(todosOsCodigos)
-                    .addComponent(rBtn_codigoRunLength)
-                    .addComponent(rBtn_codigoLZW))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(saidaDeDadosNaTela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnIniciarProcesso)
-                    .addComponent(btnGerarRelatorio))
-                .addGap(32, 32, 32))
+                .addGap(36, 36, 36)
+                .addComponent(btnIniciarProcesso, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void todosOsCodigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todosOsCodigosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_todosOsCodigosActionPerformed
-
-    private void btnGerarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarRelatorioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGerarRelatorioActionPerformed
-
     private void btnIniciarProcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarProcessoActionPerformed
+         
+        btnIniciarProcesso.setEnabled(false);
         
-        /*
-        Ultima parte..........
-        */
         
         GeradorDeLetrasAleatorias gerador = new GeradorDeLetrasAleatorias();
         GerenciadorDeArquivos ger = new GerenciadorDeArquivos();
         RunLength runL = new RunLength();
-        LZW lzn = new LZW();
-        String letras = "";
+        LZW lzw = new LZW();
         
-        letras = gerador.gerarSequenciaDeLetrasAleatorias(1000);
-        ger.escreverNoArquivo("1000Letras.txt", letras);
+        String textosGerados = "";
+        String textosLidos = "";
+        long tempoInicio;
+        long tempoFinal;
+        long tempoExecusao;
+ 
         
-        letras = gerador.gerarSequenciaDeLetrasAleatorias(10000);
-        //System.out.print(letras);        
-        //ger.escreverNoArquivo("10000Letras.txt", letras);
+        /*
+            CRIAÇÃO DOS ARQUIVOS BASE
+            
+            Arquivos de 1000(mil), 10000(dez mil) e 100000 (cem mil)
+        */           
+        textosGerados = gerador.gerarSequenciaDeLetrasAleatorias(1000);
+        ger.escreverNoArquivo("milLetrasOriginal.txt", textosGerados);
         
-        //letras = gerador.gerarSequenciaDeLetrasAleatorias(100000);
-        //System.out.print(letras);        
-        //ger.escreverNoArquivo("100000Letras.txt", letras);
+        textosGerados = gerador.gerarSequenciaDeLetrasAleatorias(10000);        
+        ger.escreverNoArquivo("dezMilLetrasOriginal.txt", textosGerados);
         
-        letras = lzn.compactar(letras);
-        System.out.println("\n\n\nCOMPACTADO LZN : " + letras + "\n\n\n");
-        
-        
-        letras = lzn.descompactar(letras);
-        System.out.println("\n\n\nDESCOMPACTADO LZN : " + letras + "\n\n\n");
-
+        textosGerados = gerador.gerarSequenciaDeLetrasAleatorias(100000);     
+        ger.escreverNoArquivo("cemMilLetrasOriginal.txt", textosGerados);
         
         
+        /*
+            Processo Run-Lenght
+        */
+        // Com 1000
+        textosLidos = ger.lerArquivo("milLetrasOriginal.txt");        
+        tempoInicio = System.nanoTime();
+        textosLidos = runL.compactar(textosLidos);
+        tempoFinal = System.nanoTime();
+        tempoExecusao = tempoFinal - tempoInicio;
+        tempoDeExecusaoRL[0] = tempoExecusao;
+        ger.escreverNoArquivo("milLetrasCompactadoRunLength.txt", textosLidos);
+             
+        tempoInicio = System.nanoTime();
+        textosLidos = runL.descompactar(textosLidos);
+        tempoFinal = System.nanoTime();
+        tempoExecusao = tempoFinal - tempoInicio;
+        tempoDeExecusaoRL[1] = tempoExecusao;
+        ger.escreverNoArquivo("milLetrasDescompactadoRunLength.txt", textosLidos);
+        
+        
+        // Com 10000
+        textosLidos = ger.lerArquivo("dezMilLetrasOriginal.txt");        
+        tempoInicio = System.nanoTime();
+        textosLidos = runL.compactar(textosLidos);
+        tempoFinal = System.nanoTime();
+        tempoExecusao = tempoFinal - tempoInicio;
+        tempoDeExecusaoRL[2] = tempoExecusao;
+        ger.escreverNoArquivo("dezMilLetrasCompactadoRunLength.txt", textosLidos);
+             
+        tempoInicio = System.nanoTime();
+        textosLidos = runL.descompactar(textosLidos);
+        tempoFinal = System.nanoTime();
+        tempoExecusao = tempoFinal - tempoInicio;
+        tempoDeExecusaoRL[3] = tempoExecusao;
+        ger.escreverNoArquivo("dezMilLetrasDescompactadoRunLength.txt", textosLidos);
+        
+        // Com 100000
+        textosLidos = ger.lerArquivo("cemMilLetrasOriginal.txt");        
+        tempoInicio = System.nanoTime();
+        textosLidos = runL.compactar(textosLidos);
+        tempoFinal = System.nanoTime();
+        tempoExecusao = tempoFinal - tempoInicio;
+        tempoDeExecusaoRL[4] = tempoExecusao;
+        ger.escreverNoArquivo("cemMilLetrasCompactadoRunLength.txt", textosLidos);
+             
+        tempoInicio = System.nanoTime();
+        textosLidos = runL.descompactar(textosLidos);
+        tempoFinal = System.nanoTime();
+        tempoExecusao = tempoFinal - tempoInicio;
+        tempoDeExecusaoRL[5] = tempoExecusao;
+        ger.escreverNoArquivo("cemMilLetrasDescompactadoRunLength.txt", textosLidos);
+        
+        
+        
+        /*
+            Processo LZW
+        */
+        //1000
+        textosLidos = ger.lerArquivo("milLetrasOriginal.txt");        
+        tempoInicio = System.nanoTime();
+        textosLidos = lzw.compactar(textosLidos);
+        tempoFinal = System.nanoTime();
+        tempoExecusao = tempoFinal - tempoInicio;
+        tempoDeExecusaoLZW[0] = tempoExecusao;
+        ger.escreverNoArquivo("milLetrasCompactadoLZW.txt",textosLidos);
+             
+        tempoInicio = System.nanoTime();
+        textosLidos = lzw.descompactar(textosLidos);
+        tempoFinal = System.nanoTime();
+        tempoExecusao = tempoFinal - tempoInicio;
+        tempoDeExecusaoLZW[1] = tempoExecusao;
+        ger.escreverNoArquivo("milLetrasDescompactadoLZW.txt", textosLidos);
+        
+        /// *********************
+        
+        // Com 10000
+        textosLidos = ger.lerArquivo("dezMilLetrasOriginal.txt");        
+        tempoInicio = System.nanoTime();
+        textosLidos = lzw.compactar(textosLidos);
+        tempoFinal = System.nanoTime();
+        tempoExecusao = tempoFinal - tempoInicio;
+        tempoDeExecusaoLZW[2] = tempoExecusao;
+        ger.escreverNoArquivo("dezMilLetrasCompactadoLZW.txt", textosLidos);
+             
+        tempoInicio = System.nanoTime();
+        textosLidos = lzw.descompactar(textosLidos);
+        tempoFinal = System.nanoTime();
+        tempoExecusao = tempoFinal - tempoInicio;
+        tempoDeExecusaoLZW[3] = tempoExecusao;
+        ger.escreverNoArquivo("dezMilLetrasDescompactadoLZW.txt", textosLidos);
+        
+        // Com 100000
+        textosLidos = ger.lerArquivo("cemMilLetrasOriginal.txt");        
+        tempoInicio = System.nanoTime();
+        textosLidos = lzw.compactar(textosLidos);
+        tempoFinal = System.nanoTime();
+        tempoExecusao = tempoFinal - tempoInicio;
+        tempoDeExecusaoLZW[4] = tempoExecusao;
+        ger.escreverNoArquivo("cemMilLetrasCompactadoLZW.txt", textosLidos);
+             
+        tempoInicio = System.nanoTime();
+        textosLidos = lzw.descompactar(textosLidos);
+        tempoFinal = System.nanoTime();
+        tempoExecusao = tempoFinal - tempoInicio;
+        tempoDeExecusaoLZW[5] = tempoExecusao;
+        ger.escreverNoArquivo("cemMilLetrasDescompactadoLZW.txt", textosLidos);
+                
+        JOptionPane.showMessageDialog(null, "Caminho dos arquivos gerados:\n src/main/Arquivos", "Informação dos arquivos", JOptionPane.INFORMATION_MESSAGE);
+        
+        btnIniciarProcesso.setEnabled(true);
         
     }//GEN-LAST:event_btnIniciarProcessoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGerarRelatorio;
     private javax.swing.JButton btnIniciarProcesso;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenu menuAlgoritmos;
-    private javax.swing.JMenu menuProjeto;
-    private javax.swing.JRadioButton rBtn_codigoLZW;
-    private javax.swing.JRadioButton rBtn_codigoRunLength;
-    private javax.swing.JPanel saidaDeDadosNaTela;
-    private javax.swing.JRadioButton todosOsCodigos;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,10 +1,9 @@
 Telas\TelaPrincipal.class
-Telas\TelaPrincipal$3.class
 main$1.class
 main.class
 LetrasAleatorias\GeradorDeLetrasAleatorias.class
 Telas\TelaPrincipal$1.class
 Algoritmos\RunLength.class
-Telas\TelaPrincipal$2.class
-Algoritmos\LZN.class
+Algoritmos\Interface\CompressaoCompactacao.class
+Algoritmos\LZW.class
 ManipulaArquivos\GerenciadorDeArquivos.class
